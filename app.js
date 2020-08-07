@@ -1,6 +1,7 @@
 var express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
+var PORT = process.env.PORT || 5000;
 var mongoose = require("mongoose");
 mongoose.connect(
   "mongodb+srv://tester:test@cluster1.svymu.mongodb.net/training?retryWrites=true&w=majority",
@@ -56,4 +57,4 @@ app.use(campgroundRoutes);
 // functional routes
 //====================
 
-app.listen(3000, console.log("The yelpcamp server has started"));
+app.listen(PORT, console.log("The yelpcamp server has started"));
