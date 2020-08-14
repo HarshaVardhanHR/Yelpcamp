@@ -1,7 +1,7 @@
 var express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
-var PORT = 3001;
+var PORT = process.env.PORT || 3000;
 var mongoose = require("mongoose");
 var flash = require("connect-flash");
 app.use(express.static('public'))
