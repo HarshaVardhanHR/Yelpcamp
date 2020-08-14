@@ -113,6 +113,7 @@ function isloggedin(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
+    req.flash("error", "please login first");
     res.redirect("/login");
   }
 }

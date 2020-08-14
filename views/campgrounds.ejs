@@ -2,14 +2,12 @@
 
 <div class="container">
   <header class="jumbotron mt-3">
-    <h1 class="display-4">Welcome to உணவகம்</h1>
-    <p class="lead">View our handpicked soru from all over the world</p>
+    <h1 class="display-4"> <i class="fas fa-campground    "></i> Welcome to Yelpcamp</h1>
+    <p class="lead">View our handpicked campgrounds from all over the world</p>
     <hr class="my-2" />
 
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button"
-        >Add new camp</a
-      >
+      <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button">Add new camp</a>
     </p>
   </header>
 
@@ -18,17 +16,10 @@
 
     <div class="col-sm-6 col-md-4">
       <div class="card m-3">
-        <img
-          class="img-thumbnail"
-          style="height: 200px;"
-          src="<%=campground.image%>"
-          alt="load aagala"
-        />
+        <img class="img-thumbnail" style="height: 200px;" src="<%=campground.image%>" alt="load aagala" />
         <div class="card-body">
           <h4 class="card-title"><%=campground.name%></h4>
-          <a href="/show/<%=campground._id%>" class="btn btn-default btn-info"
-            >More Info</a
-          >
+          <a href="/show/<%=campground._id%>" class="btn btn-default btn-info">More Info</a>
         </div>
       </div>
     </div>

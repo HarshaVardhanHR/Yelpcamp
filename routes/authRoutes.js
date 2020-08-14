@@ -12,11 +12,13 @@ router.post("/register", function (req, res) {
     var newuser = new user({ username: req.body.username });
     user.register(newuser, req.body.password, function (err, user) {
         if (err) {
+            req.flash("error", "username already taken");
             res.redirect("/register");
 
         }
         else {
             passport.authenticate("local")(req, res, function () {
+                req.flash("success", "registration successFul");
                 res.redirect("/campgrounds");
             })
         }
@@ -24,6 +26,7 @@ router.post("/register", function (req, res) {
 })
 
 router.get("/login", function (req, res) {
+
     res.render("login");
 })
 
