@@ -92,6 +92,23 @@ router.post("/add_comment/:id", isloggedin, function (req, res) {
   });
 });
 
+router.post("/delete/:id", function (req, res) {
+  campground.findById(req.params.id, function (err, cp) {
+    if (cp.author.id.equals(req.user._id)) {
+      campground.findByIdAndRemove(req.params.id, function (err) {
+        if (err) {
+          console.log(err);
+          res.redirect("/campgrounds");
+        } else {
+          res.redirect("/campgrounds");
+        }
+      });
+    } else {
+      res.redirect("/campgrounds");
+    }
+  });
+});
+
 function isloggedin(req, res, next) {
   if (req.isAuthenticated()) {
     return next();

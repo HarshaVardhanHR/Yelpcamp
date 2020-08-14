@@ -1,7 +1,7 @@
 var express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
-var PORT = process.env.PORT || 5000;
+var PORT = 3001;
 var mongoose = require("mongoose");
 mongoose.connect(
   "mongodb+srv://tester:test@cluster1.svymu.mongodb.net/training?retryWrites=true&w=majority",
@@ -26,6 +26,7 @@ app.use(
   })
 );
 
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -46,15 +47,5 @@ app.use(function (req, res, next) {
 
 app.use(authRoutes);
 app.use(campgroundRoutes);
-
-////passing req.user to every routes here
-
-//============================
-//auth routes
-//===============================
-
-//====================
-// functional routes
-//====================
 
 app.listen(PORT, console.log("The yelpcamp server has started"));
